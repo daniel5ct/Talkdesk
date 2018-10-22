@@ -1,5 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { AppComponent } from './AppComponent';
 import { FormsModule } from '@angular/forms';
 import { WebRequestJsonService } from 'src/services/WebRequestJsonService';
 
@@ -59,13 +59,13 @@ describe('AppComponent', () => {
     expect(fixture.componentInstance.Apps[0].name).toBe('Voice Report');
   })
 
-  // it('should render name in a h1', async () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.debugElement.nativeElement;
-  //   console.log('TESTE!!!!!!' + compiled.querySelector('h1'));
-  //   expect(compiled.querySelector('h1').textContent).toContain('Voice Report');
-  // })
+  it('should render name in a h1', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    await fixture.componentInstance.ngOnInit();
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('Voice Report');
+  })
 
   it('should have 3 categories', async () => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -107,11 +107,11 @@ describe('AppComponent', () => {
     expect(fixture.componentInstance.Apps[0].subscriptions[0].price).toBe(0);
   })
 
-  // it('should render subscriptions name in a span', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.debugElement.nativeElement;
-  //   console.log('TESTE?????' + compiled.querySelector('span'));
-  //   expect(compiled.querySelector('span').textContent).toContain('Trial');
-  // });
+  it('should render subscriptions name in a span', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    await fixture.componentInstance.ngOnInit();
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.box-info--footer span').textContent).toContain('Trial');
+  })
 });

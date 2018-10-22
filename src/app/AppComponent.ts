@@ -4,23 +4,16 @@ import { App } from '../models/App'
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './AppComponent.html'
 })
 export class AppComponent implements OnInit {
 
-  //#region Fields
-
-  private readonly dataURL: string = "src/app/app.data.json";
+  private readonly dataURL: string = "src/app/AppData.json";
 
   private data: Array<App> = new Array<App>();
   private pageSize: number = 3;
 
   private webRequestJsonService: WebRequestJsonService;
-
-  //#endregion
-
-  //#region Properties
 
   public Categories: Array<string> = new Array<string>();
   public SelectedCategory: string;
@@ -43,18 +36,10 @@ export class AppComponent implements OnInit {
     }
   }
 
-  //#endregion
-
-  //#region constructor
-
   public constructor(webRequestJsonService: WebRequestJsonService) 
   {
     this.webRequestJsonService = webRequestJsonService;
   }
-
-  //#endregion
-
-  //#region onInit
 
   public ngOnInit(): void
   {
@@ -130,10 +115,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-  //#endregion
-
-  //#region OnCategoryChanged
-
   public OnCategoryChanged = (value: any) =>
   {
       this.SelectedCategory = value;
@@ -142,10 +123,6 @@ export class AppComponent implements OnInit {
       this.SelectedPage = 1;
       this.SetPagination(1);
   }
-
-  //#endregion
-
-  //#region OnSelectedPageChanged
 
   public OnSelectedPageChanged = (page: number) =>
   {
@@ -156,18 +133,12 @@ export class AppComponent implements OnInit {
     }
   }
 
-  //#endregion
-
-  //#region Changed Handlers
-
   private OnFilterNameChanged = (value: string) =>
   {
     this.SelectedCategory = null;
     this.AppsFiltered = this.data.filter(q => q.name.toLowerCase().includes(this.filterName.toLowerCase()));
     this.SetPagination(1);
   }
-
-  //#endregion
 }
 
 
