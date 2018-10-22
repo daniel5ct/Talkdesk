@@ -1,25 +1,40 @@
 # TalkDeskChallenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
+The goal of the this challenge was to build a working interface that basically list, filter and paginate a list of apps:
 
-## Development server
+- List all the apps
+- Paginate the list (page size = 3)
+- Filter the apps as you type in the search bar
+- Have all the existing categories in the left navigation sorted by alphabetic order
+- Allow filtering of apps when we click on a category
+- Apps should be sorted by ascending order of the sum of the plans price
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To do the challenge, two classes with logic were done:
+ - WebRequestJsonService.ts - To fetch data from json
+ - AppComponent.ts - That contains all the logic needed to meet the requirements of the challenge
 
-## Code scaffolding
+The challenge has some unit tests for the two classes referred to above. Just a few tests were done with an example of what could be done, without covering every possible cases, as it was not the main objective of the challenge either.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+NOTE: To be better structured, separate components should have been created for each part of the logic:
+- PaginationComponent
+- FilterComponent
+- ListCompoenent
 
-## Build
+The structure was not implemented in this way because the free time available is not much and i think that at this stage the main objective is to have all the points requested to work: P
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## To run the app
 
-## Running unit tests
+Pre-requirements
+- Install node (https://nodejs.org/en/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- run the command `npm install` (to install the dependencies)
+- run the command `ng serve`
+- Navigate to http://localhost:4200/
 
-## Running end-to-end tests
+## Unit Tests
 
-## Further help
+- run the command `ng test` to execute the unit tests
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Author
+
+Daniel Soares
